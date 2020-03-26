@@ -10,12 +10,12 @@ module.exports = {
     },
 
     async create(req, res){
-        const {name, email, telefone, cidade, estado, uf} = req.body
+        const {name, email, telefone, cidade, uf} = req.body
 
         const id = crypto.randomBytes(4).toString('HEX')
     
         await connection('ongs').insert({
-            id, name, email, telefone, cidade, estado, uf
+            id, name, email, telefone, cidade, uf
         })
     
         return res.json({id})
